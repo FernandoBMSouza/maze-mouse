@@ -7,6 +7,7 @@ public class Mouse : MonoBehaviour
     public float moveSpeed = 5f;
     private Vector3 targetPosition;
     private bool isMoving = false;
+    public int Points { get; set; }
 
     private void Update()
     {
@@ -58,6 +59,12 @@ public class Mouse : MonoBehaviour
         if (isMoving && collision.gameObject.CompareTag("Wall"))
         {
             isMoving = false;
+        }
+
+        if(collision.gameObject.CompareTag("Cheese"))
+        {
+            Points++;
+            Destroy(collision.gameObject);
         }
     }
 }
