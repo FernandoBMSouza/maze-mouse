@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mouse : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 20f;
     private Vector3 targetPosition;
     private bool isMoving = false;
     public int Points { get; set; }
