@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
 
 public static class SaveSystem {
 
-    private static readonly string SAVE_FOLDER = Application.dataPath + "/Saves/";
+    private static readonly string SAVE_FOLDER = Application.dataPath + "/Saves/JSON/";
     private const string SAVE_EXTENSION = "txt";
 
     public static void Init() {
@@ -25,6 +26,19 @@ public static class SaveSystem {
         // saveNumber is unique
         File.WriteAllText(SAVE_FOLDER + "save_" + saveNumber + "." + SAVE_EXTENSION, saveString);
     }
+
+    public static void SaveXML(XmlDocument saveString)
+    {
+        // Make sure the Save Number is unique so it doesnt overwrite a previous save file
+        int saveNumber = 1;
+        while (File.Exists(Application.dataPath + "/Saves/XML/" + "saveXML_" + saveNumber + "." + SAVE_EXTENSION))
+        {
+            saveNumber++;
+        }
+        // saveNumber is unique
+        saveString.Save(Application.dataPath + "/Saves/XML/" + "saveXML_"  + "." + SAVE_EXTENSION);
+    }
+
 
     public static string Load() {
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLDER);

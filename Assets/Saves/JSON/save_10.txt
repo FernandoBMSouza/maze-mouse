@@ -1,0 +1,1 @@
+{"savePlayerPoints":0,"savePlayerPosition":{"x":14.128562927246094,"y":-1.1852810382843018,"z":0.0},"saveEnemyPosition":{"x":33.260765075683597,"y":13.761815071105957,"z":-1.973739743232727},"saveTimer":57.29414749145508,"saveCheeses":[{"instanceID":-1272},{"instanceID":-1264},{"instanceID":-1256},{"instanceID":-1248},{"instanceID":-1240},{"instanceID":-1232}]}
