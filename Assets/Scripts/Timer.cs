@@ -11,18 +11,26 @@ public class Timer : MonoBehaviour
     private string minutes, seconds;
     [SerializeField] private float maxTime;
 
-    public float CurrentTime { get => timer; }
+    public float TimerValue
+    {
+        get => timer;
+        set => timer = value;
+    }
+
+    public float CurrentTime { get => timer;}
     [SerializeField] private Pause pause;
 
 
     private void Start()
     {
-        startTime = maxTime;
+        //startTime = maxTime;
+        timer = maxTime;
     }
 
     private void Update()
     {
-        timer = startTime - Time.time;
+        //timer = startTime - Time.time;
+        timer -= Time.deltaTime;
 
         if (timer > 0)
         {

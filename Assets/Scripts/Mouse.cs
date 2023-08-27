@@ -77,7 +77,7 @@ public class Mouse : MonoBehaviour
         if(collision.gameObject.CompareTag("Cheese"))
         {
             Points++;
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
 
         if(collision.gameObject.CompareTag("Enemy"))
