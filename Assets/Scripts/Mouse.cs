@@ -9,6 +9,14 @@ public class Mouse : MonoBehaviour
     private bool isMoving = false;
     public int Points { get; set; }
 
+    GameObject[] cheeses;
+
+    [SerializeField] private Pause pause;
+
+    private void Start() {
+        cheeses = GameObject.FindGameObjectsWithTag("Cheese");
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -19,6 +27,11 @@ public class Mouse : MonoBehaviour
         if (isMoving)
         {
             MoveToTarget();
+        }
+
+        if(Points >= cheeses.Length)
+        {
+            pause.Win();
         }
     }
 
@@ -65,6 +78,11 @@ public class Mouse : MonoBehaviour
         {
             Points++;
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            pause.Loose();
         }
     }
 }

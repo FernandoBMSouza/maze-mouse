@@ -12,6 +12,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private float maxTime;
 
     public float CurrentTime { get => timer; }
+    [SerializeField] private Pause pause;
+
 
     private void Start()
     {
@@ -36,6 +38,11 @@ public class Timer : MonoBehaviour
         else
         {
             timer = 0;
+        }
+
+        if(timer <= 0)
+        {
+            pause.Loose();
         }
     }
 }

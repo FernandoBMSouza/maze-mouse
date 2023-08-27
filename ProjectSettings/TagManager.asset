@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Cheese
+  - Enemy
   layers:
   - Default
   - TransparentFX
